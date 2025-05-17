@@ -3,6 +3,10 @@ package pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static utils.ElementActions.click;
 
@@ -32,6 +36,11 @@ public class HomePage {
         click(driver, shoppingCart);
     }
 
+    public void logout() {
+        driver.findElement(By.id("react-burger-menu-btn")).click();
+        new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.elementToBeClickable(By.id("logout_sidebar_link"))).click();
+    }
 
 
 

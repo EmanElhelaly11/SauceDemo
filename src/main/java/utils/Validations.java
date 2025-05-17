@@ -114,4 +114,10 @@ public class Validations {
     public static void assertAll() {
         softAssert.assertAll();
     }
+
+
+    public static ObjectValidator assertThat() {
+        return new ObjectValidator();
+    }
+
 }
