@@ -25,6 +25,7 @@ public class LoginPage {
 
     private final By loginButton = By.id( "login-button");
 
+    private final By errorMessage = By.cssSelector("[data-test='error']");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -47,6 +48,11 @@ public class LoginPage {
         type(driver,userName, username);
         type(driver,passwordField, password);
         click(driver,loginButton);
+    }
+
+
+    public String getLoginErrorMessage() {
+        return driver.findElement(errorMessage).getText();
     }
 
 
